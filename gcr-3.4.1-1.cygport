@@ -1,0 +1,27 @@
+inherit gnome2
+
+
+PATCH_URI="
+	3.2.2-gck1-parallel-install.patch
+	3.4.1-no-memrchr.patch
+	3.4.1-tests-no-undefined.patch
+"
+
+PKG_NAMES="${PN} libgcr3_1 libgcr3-common libgcr3-devel girepository-Gcr3
+           libgck1_0 libgck1-devel girepository-Gck1"
+gcr_CONTENTS="--exclude=gcr-3 --exclude=gir-1.0 --exclude=gtk-doc etc/ usr/bin/gcr-* usr/share/"
+libgck1_0_CONTENTS="usr/bin/cyggck-1-0.dll"
+libgck1_devel_CONTENTS="usr/include/gck-1/ usr/lib/libgck-1.*
+                        usr/lib/pkgconfig/gck-1.pc
+                        usr/share/gtk-doc/html/gck-1/"
+libgcr3_1_CONTENTS="usr/bin/cyggcr*-3-1.dll"
+libgcr3_common_CONTENTS="usr/share/gcr-3/"
+libgcr3_devel_CONTENTS="usr/include/gcr-3/ usr/lib/libgcr*-3.*
+                        usr/lib/pkgconfig/gcr*-3.pc
+                        usr/share/gtk-doc/html/gcr-3/"
+girepository_Gck1_CONTENTS="usr/*/gir*/Gck-1.*"
+girepository_Gcr3_CONTENTS="usr/*/gir*/Gcr-3.*"
+
+CYGCONF_ARGS="--libexecdir=/usr/bin"
+
+KEEP_LA_FILES="none"
