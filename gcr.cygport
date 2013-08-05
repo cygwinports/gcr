@@ -15,6 +15,7 @@ not stored on disk and goes away when you log out."
 PATCH_URI="
 	3.2.2-gck1-parallel-install.patch
 	3.8.2-tests-as-needed.patch
+	3.8.2-gcr-ui-pkgconfig.patch
 "
 
 PKG_NAMES="${NAME} libgcr3_1 libgcr3-common libgcr3-devel girepository-Gcr3
