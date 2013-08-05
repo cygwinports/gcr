@@ -1,0 +1,13 @@
+--- origsrc/gcr-3.8.2/gcr/tests/Makefile.am	2013-04-21 07:31:46.000000000 -0500
++++ src/gcr-3.8.2/gcr/tests/Makefile.am	2013-08-05 17:40:17.395804400 -0500
+@@ -12,9 +12,9 @@ INCLUDES = \
+ 	$(P11_KIT_CFLAGS)
+ 
+ LDADD = \
+-	$(top_builddir)/gcr/libgcr-base-@GCR_MAJOR@.la \
+ 	$(top_builddir)/egg/libegg.la \
+ 	$(top_builddir)/gck/libgck-testable.la \
++	$(top_builddir)/gcr/libgcr-base-@GCR_MAJOR@.la \
+ 	$(GLIB_LIBS) \
+ 	$(LIBGCRYPT_LIBS) \
+ 	$(P11_KIT_LIBS)
