@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="gcr"
-VERSION=3.8.2
+VERSION=3.10.1
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME cryptography framework"
@@ -18,16 +18,22 @@ PATCH_URI="
 	3.8.2-gcr-ui-pkgconfig.patch
 "
 
-PKG_NAMES="${NAME} libgcr3_1 libgcr3-common libgcr3-devel girepository-Gcr3
-           libgck1_0 libgck1-devel girepository-Gck1"
+PKG_NAMES="${NAME} libgcr3_1 libgcr3-common libgcr3-devel libgcr3-doc
+           girepository-Gcr3 vala-gcr3
+           libgck1_0 libgck1-devel libgck1-doc girepository-Gck1 vala-gck1"
 gcr_CATEGORY="GNOME"
-gcr_CONTENTS="--exclude=gcr-3 --exclude=gir-1.0 --exclude=gtk-doc etc/ usr/bin/*.exe usr/libexec/ usr/share/"
+gcr_CONTENTS="etc/postinstall/ usr/bin/gcr-viewer.exe usr/libexec/gcr-prompter.exe
+	usr/share/GConf/ usr/share/applications/gcr-* usr/share/dbus-1/services/
+	usr/share/doc/ usr/share/glib-2.0/schemas/ usr/share/icons/
+	usr/share/locale/ usr/share/mime/packages/"
 libgck1_0_SUMMARY="GNOME PKCS11 library (runtime)"
 libgck1_0_CONTENTS="usr/bin/cyggck-1-0.dll"
 libgck1_devel_SUMMARY="GNOME PKCS11 library (development)"
 libgck1_devel_CONTENTS="usr/include/gck-1/ usr/lib/libgck-1.*
-                        usr/lib/pkgconfig/gck-1.pc
-                        usr/share/gtk-doc/html/gck-1/"
+                        usr/lib/pkgconfig/gck-1.pc"
+libgck1_doc_CATEGORY="Doc"
+libgck1_doc_SUMMARY="GNOME PKCS11 library (API documentation)"
+libgck1_doc_CONTENTS="usr/share/gtk-doc/html/gck-1/"
 libgcr3_1_SUMMARY="GNOME crypto UI library (runtime)"
 libgcr3_1_REQUIRES="libgcr3-common"
 libgcr3_1_CONTENTS="usr/bin/cyggcr*-3-1.dll"
@@ -35,9 +41,15 @@ libgcr3_common_SUMMARY="GNOME crypto UI library (data)"
 libgcr3_common_CONTENTS="usr/share/gcr-3/"
 libgcr3_devel_SUMMARY="GNOME crypto UI library (development)"
 libgcr3_devel_CONTENTS="usr/include/gcr-3/ usr/lib/libgcr*-3.*
-                        usr/lib/pkgconfig/gcr*-3.pc
-                        usr/share/gtk-doc/html/gcr-3/"
-girepository_Gck1_CONTENTS="usr/*/gir*/Gck-1.*"
+                        usr/lib/pkgconfig/gcr*-3.pc"
+libgcr3_doc_CATEGORY="Doc"
+libgcr3_doc_SUMMARY="GNOME crypto UI library (API documentation)"
+libgcr3_doc_CONTENTS="usr/share/gtk-doc/html/gcr-3/"
 girepository_Gck1_SUMMARY="GNOME PKCS11 library (GObject Introspection)"
-girepository_Gcr3_CONTENTS="usr/*/gir*/Gcr*-3.*"
+girepository_Gck1_CONTENTS="usr/*/gir*/Gck-1.*"
 girepository_Gcr3_SUMMARY="GNOME crypto UI library (GObject Introspection)"
+girepository_Gcr3_CONTENTS="usr/*/gir*/Gcr*-3.*"
+vala_gck1_SUMMARY="GNOME PKCS11 library (Vala bindings)"
+vala_gck1_CONTENTS="usr/share/vala/vapi/gck-1.*"
+vala_gcr3_SUMMARY="GNOME crypto UI library (Vala bindings)"
+vala_gcr3_CONTENTS="usr/share/vala/vapi/gcr*-3.*"
