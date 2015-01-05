@@ -1,0 +1,13 @@
+--- origsrc/gcr-3.14.0/gcr/Makefile.am	2014-09-23 02:40:08.000000000 -0500
++++ src/gcr-3.14.0/gcr/Makefile.am	2015-01-04 21:44:11.275560200 -0600
+@@ -265,9 +265,9 @@ gcr_CFLAGS = \
+ 	$(P11_KIT_CFLAGS)
+ 
+ gcr_LIBS = \
+-	libgcr-base-@GCR_MAJOR@.la \
+ 	libegg.la \
+ 	libgck-testable.la \
++	libgcr-base-@GCR_MAJOR@.la \
+ 	$(GLIB_LIBS) \
+ 	$(LIBGCRYPT_LIBS) \
+ 	$(P11_KIT_LIBS)
