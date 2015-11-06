@@ -1,8 +1,8 @@
 inherit gnome2
 
 NAME="gcr"
-VERSION=3.14.0
-RELEASE=2
+VERSION=3.18.0
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME cryptography framework"
 DESCRIPTION="GNOME Keyring is a system to store passwords and other sensitive
@@ -18,7 +18,7 @@ PATCH_URI="
 "
 
 PKG_NAMES="${NAME} libgcr3_1 libgcr3-common libgcr3-devel libgcr3-doc
-           girepository-Gcr3 vala-gcr3
+           girepository-Gcr3 vala-gcr3 vala-pkcs11
            libgck1_0 libgck1-devel libgck1-doc girepository-Gck1 vala-gck1"
 gcr_CATEGORY="GNOME"
 gcr_CONTENTS="etc/postinstall/ usr/bin/gcr-viewer.exe usr/libexec/gcr-prompter.exe
@@ -28,6 +28,7 @@ gcr_CONTENTS="etc/postinstall/ usr/bin/gcr-viewer.exe usr/libexec/gcr-prompter.e
 libgck1_0_SUMMARY="GNOME PKCS11 library (runtime)"
 libgck1_0_CONTENTS="usr/bin/cyggck-1-0.dll"
 libgck1_devel_SUMMARY="GNOME PKCS11 library (development)"
+libgck1_devel_REQUIRES="girepository-Gck1 vala-gck1"
 libgck1_devel_CONTENTS="usr/include/gck-1/ usr/lib/libgck-1.*
                         usr/lib/pkgconfig/gck-1.pc"
 libgck1_doc_CATEGORY="Doc"
@@ -39,6 +40,7 @@ libgcr3_1_CONTENTS="usr/bin/cyggcr*-3-1.dll"
 libgcr3_common_SUMMARY="GNOME crypto UI library (data)"
 libgcr3_common_CONTENTS="usr/share/gcr-3/"
 libgcr3_devel_SUMMARY="GNOME crypto UI library (development)"
+libgcr3_devel_REQUIRES="girepository-Gcr3 vala-gcr3"
 libgcr3_devel_CONTENTS="usr/include/gcr-3/ usr/lib/libgcr*-3.*
                         usr/lib/pkgconfig/gcr*-3.pc"
 libgcr3_doc_CATEGORY="Doc"
@@ -52,3 +54,5 @@ vala_gck1_SUMMARY="GNOME PKCS11 library (Vala bindings)"
 vala_gck1_CONTENTS="usr/share/vala/vapi/gck-1.*"
 vala_gcr3_SUMMARY="GNOME crypto UI library (Vala bindings)"
 vala_gcr3_CONTENTS="usr/share/vala/vapi/gcr*-3.*"
+vala_pkcs11_SUMMARY="Vala p11-kit bindings"
+vala_pkcs11_CONTENTS="usr/share/vala/vapi/pkcs11.vapi"
