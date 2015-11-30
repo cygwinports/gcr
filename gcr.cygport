@@ -17,8 +17,10 @@ PATCH_URI="
 	3.14.0-tests-as-needed.patch
 "
 
-PKG_NAMES="${NAME} libgcr3_1 libgcr3-common libgcr3-devel libgcr3-doc
-           girepository-Gcr3 vala-gcr3 vala-pkcs11
+PKG_NAMES="${NAME} libgcr-base3_1 libgcr-ui3_1 libgcr-ui3-common
+           libgcr-base3-devel libgcr-ui3-devel libgcr3-doc
+           girepository-Gcr3 girepository-GcrUi3
+           vala-gcr3 vala-gcr-ui3 vala-pkcs11
            libgck1_0 libgck1-devel libgck1-doc girepository-Gck1 vala-gck1"
 gcr_CATEGORY="GNOME"
 gcr_CONTENTS="etc/postinstall/ usr/bin/gcr-viewer.exe usr/libexec/gcr-prompter.exe
@@ -34,25 +36,38 @@ libgck1_devel_CONTENTS="usr/include/gck-1/ usr/lib/libgck-1.*
 libgck1_doc_CATEGORY="Doc"
 libgck1_doc_SUMMARY="GNOME PKCS11 library (API documentation)"
 libgck1_doc_CONTENTS="usr/share/gtk-doc/html/gck-1/"
-libgcr3_1_SUMMARY="GNOME crypto UI library (runtime)"
-libgcr3_1_REQUIRES="libgcr3-common"
-libgcr3_1_CONTENTS="usr/bin/cyggcr*-3-1.dll"
-libgcr3_common_SUMMARY="GNOME crypto UI library (data)"
-libgcr3_common_CONTENTS="usr/share/gcr-3/"
-libgcr3_devel_SUMMARY="GNOME crypto UI library (development)"
-libgcr3_devel_REQUIRES="girepository-Gcr3 vala-gcr3"
-libgcr3_devel_CONTENTS="usr/include/gcr-3/ usr/lib/libgcr*-3.*
-                        usr/lib/pkgconfig/gcr*-3.pc"
+libgcr_base3_1_SUMMARY="GObject crypto library (runtime)"
+libgcr_base3_1_CONTENTS="usr/bin/cyggcr-base-3-1.dll"
+libgcr_ui3_1_SUMMARY="GNOME crypto UI library (runtime)"
+libgcr_ui3_1_REQUIRES="libgcr-ui3-common"
+libgcr_ui3_1_OBSOLETES="libgcr3_1"
+libgcr_ui3_1_CONTENTS="usr/bin/cyggcr-ui-3-1.dll"
+libgcr_ui3_common_SUMMARY="GNOME crypto UI library (data)"
+libgcr_ui3_common_OBSOLETES="libgcr3-common"
+libgcr_ui3_common_CONTENTS="usr/share/gcr-3/"
+libgcr_base3_devel_SUMMARY="GObject crypto library (development)"
+libgcr_base3_devel_REQUIRES="girepository-Gcr3 vala-gcr3"
+libgcr_base3_devel_CONTENTS="usr/include/gcr-3/gcr/ usr/lib/libgcr-base-3.dll.a
+	usr/lib/pkgconfig/gcr-base-3.pc"
+libgcr_ui3_devel_SUMMARY="GNOME crypto UI library (development)"
+libgcr_ui3_devel_REQUIRES="girepository-GcrUi3 vala-gcr-ui3"
+libgcr_ui3_devel_OBSOLETES="libgcr3-devel"
+libgcr_ui3_devel_CONTENTS="usr/include/gcr-3/ui/ usr/lib/libgcr-ui-3.*
+	usr/lib/pkgconfig/gcr-3.pc usr/lib/pkgconfig/gcr-ui-3.pc"
 libgcr3_doc_CATEGORY="Doc"
 libgcr3_doc_SUMMARY="GNOME crypto UI library (API documentation)"
 libgcr3_doc_CONTENTS="usr/share/gtk-doc/html/gcr-3/"
 girepository_Gck1_SUMMARY="GNOME PKCS11 library (GObject Introspection)"
 girepository_Gck1_CONTENTS="usr/*/gir*/Gck-1.*"
-girepository_Gcr3_SUMMARY="GNOME crypto UI library (GObject Introspection)"
-girepository_Gcr3_CONTENTS="usr/*/gir*/Gcr*-3.*"
+girepository_Gcr3_SUMMARY="GObject crypto library (GObject Introspection)"
+girepository_Gcr3_CONTENTS="usr/*/gir*/Gcr-3.*"
+girepository_GcrUi3_SUMMARY="GNOME crypto UI library (GObject Introspection)"
+girepository_GcrUi3_CONTENTS="usr/*/gir*/GcrUi-3.*"
 vala_gck1_SUMMARY="GNOME PKCS11 library (Vala bindings)"
 vala_gck1_CONTENTS="usr/share/vala/vapi/gck-1.*"
-vala_gcr3_SUMMARY="GNOME crypto UI library (Vala bindings)"
-vala_gcr3_CONTENTS="usr/share/vala/vapi/gcr*-3.*"
+vala_gcr3_SUMMARY="GObject crypto library (Vala bindings)"
+vala_gcr3_CONTENTS="usr/share/vala/vapi/gcr-3.*"
+vala_gcr_ui3_SUMMARY="GNOME crypto UI library (Vala bindings)"
+vala_gcr_ui3_CONTENTS="usr/share/vala/vapi/gcr-ui-3.*"
 vala_pkcs11_SUMMARY="Vala p11-kit bindings"
 vala_pkcs11_CONTENTS="usr/share/vala/vapi/pkcs11.vapi"
